@@ -1,6 +1,8 @@
 package jpabook.jpashop.domain;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -14,6 +16,7 @@ import java.util.List;
 
 @Setter
 @Getter
+@NoArgsConstructor
 @Entity
 public class Member {
 
@@ -28,4 +31,10 @@ public class Member {
 
     @OneToMany(mappedBy = "member") // 연관관계 거울, 읽기 전용
     private List<Order> orders = new ArrayList<>();
+
+    @Builder
+    public Member(Long id, String name, Address address, List<Order> orders) {
+        this.name = name;
+        this.address = address;
+    }
 }

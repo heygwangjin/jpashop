@@ -1,10 +1,14 @@
 package jpabook.jpashop.domain;
 
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 
 @Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Embeddable // JPA의 내장 타입
 public class Address {
 
@@ -12,10 +16,7 @@ public class Address {
     private String street;
     private String zipcode;
 
-    // JPA 스펙상 엔티티, 임베디드 타입은 자바 기본 생성자를 설정해야 한다.
-    protected Address() {
-    }
-
+    @Builder
     public Address(String city, String street, String zipcode) {
         this.city = city;
         this.street = street;

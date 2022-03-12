@@ -1,4 +1,4 @@
-package jpabook.jpashop;
+package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import org.junit.jupiter.api.Test;
@@ -24,8 +24,8 @@ public class MemberRepositoryTest {
         member.setName("memberA");
 
         //when
-        Long saveId = memberRepository.save(member);
-        Member findMember = memberRepository.find(saveId);
+        memberRepository.save(member);
+        Member findMember = memberRepository.findOne(member.getId());
 
         //then
         assertThat(findMember.getId()).isEqualTo(member.getId());
