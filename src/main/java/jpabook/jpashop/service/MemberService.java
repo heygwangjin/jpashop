@@ -9,14 +9,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional(readOnly = true) // 조회 메서드에 적용된다.
 @Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
     //회원 가입
-    @Transactional
+    @Transactional // DB 상태 변경되는 메서드에 적용
     public Long join(Member member) {
         validateDuplicateMember(member);
         memberRepository.save(member);

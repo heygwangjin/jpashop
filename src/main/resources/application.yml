@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create # 앱 실행 시점에 테이블을 drop 하고 생성
     properties:
       hibernate:
 #        show_sql: true // sout에 출력
@@ -15,5 +15,5 @@ spring:
 
 logging:
   level:
-    org.hibernate.SQL: debug
+    org.hibernate.SQL: debug # logger를 통해 로깅
 #    org.hibernate.type: trace

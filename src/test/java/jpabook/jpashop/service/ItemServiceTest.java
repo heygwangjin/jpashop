@@ -19,10 +19,7 @@ class ItemServiceTest {
     @Test
     public void 아이템_등록() throws Exception {
         //given
-        Book book = Book.builder()
-                .author("김광진")
-                .isbn("dsaklfjlksdf")
-                .build();
+        Book book = new Book();
 
         //when
         Long saveItem = itemService.saveItem(book);

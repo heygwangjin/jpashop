@@ -44,7 +44,8 @@ public class OrderService {
         Order order = Order.createOrder(member, delivery, orderItem);
 
         //주문 저장
-        orderRepository.save(order);
+        orderRepository.save(order); // Cascade 덕분에 OrderItem과 Delivery도 자동으로 persist된다.
+
         return order.getId();
     }
 

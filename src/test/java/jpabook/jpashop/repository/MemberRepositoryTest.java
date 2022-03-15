@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class MemberRepositoryTest {
+class MemberRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;
@@ -20,8 +20,9 @@ public class MemberRepositoryTest {
     @Transactional // 테스트 클래스에 있으면 테스트 끝나고 DB를 rollback
     public void testMember() throws Exception {
         //given
-        Member member = new Member();
-        member.setName("memberA");
+        Member member = Member.builder()
+                .name("memberA")
+                .build();
 
         //when
         memberRepository.save(member);
