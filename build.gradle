@@ -25,6 +25,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-devtools' // recompile 했을 때, 브라우저 변경 즉시 적용
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0' // 쿼리 파라미터를 로그에 남겨주는 외부 라이브러리
+	implementation 'org.mariadb.jdbc:mariadb-java-client'
 
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
