@@ -1,14 +1,3 @@
 spring:
-  datasource:
-    url: jdbc:h2:tcp://localhost/~/jpashop
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: create # 앱 실행 시점에 테이블을 drop 하고 생성
-    properties:
-      hibernate:
-#        show_sql: true // sout에 출력
-        format_sql: true
+  profiles:
+    default: local

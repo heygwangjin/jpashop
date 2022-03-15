@@ -1,3 +1,5 @@
 spring:
   config:
+    activate:
+      on-profile: prod
     import: prod-db
