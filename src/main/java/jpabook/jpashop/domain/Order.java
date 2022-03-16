@@ -9,6 +9,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -28,7 +29,7 @@ import static javax.persistence.FetchType.LAZY;
 @Table(name = "orders")
 public class Order {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private Long id;
 
@@ -50,7 +51,7 @@ public class Order {
     //==연관관계 메서드==//
     public void setMember(Member member) {
         this.member = member;
-        member.getOrders().add(this);
+        member.getOrders().add(this); // 동시에 동기화 되게 해야 한다.
     }
 
     public void addOrderItem(OrderItem orderItem) {
